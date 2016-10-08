@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using IMDBThingy.lib.Reposotory;
-using IMDBThingy.ValueTypeClasses;
+using IMDBThingy.lib.ValueObjects;
 
 namespace IMDBThingy.lib.Servicies {
 

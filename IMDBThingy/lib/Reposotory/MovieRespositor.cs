@@ -2,7 +2,6 @@
 
 using IMDBThingy.lib.Factory;
 using IMDBThingy.lib.ValueObjects;
-using IMDBThingy.ValueTypeClasses;
 
 namespace IMDBThingy.lib.Reposotory {
 
@@ -22,29 +21,35 @@ namespace IMDBThingy.lib.Reposotory {
 
             //MoveWorkers
             var denzelWashington = PersonFactory.CreateActor(
-                "Denzel Washington", new List<Movie>(), new List<Movie> {trainingDay}
+                PersonFactory.CreatePerson("Denzel Washington", "1996-11-07", '-'), new List<Movie>(),
+                new List<Movie> {trainingDay}
             );
 
             var sandraBullock = PersonFactory.CreateActor(
-                "Sandra Bullock", new List<Movie>(), new List<Movie> {gravity}
+                PersonFactory.CreatePerson("Sandra Bullock", "1990-05-30", '-'), new List<Movie>(),
+                new List<Movie> {gravity}
             );
 
             var george = PersonFactory.CreateActor(
-                "George Clooney", new List<Movie>(), new List<Movie> {gravity, oceanEleven}
+                PersonFactory.CreatePerson("George Clooney", "1950-10-22", '-'), new List<Movie>(),
+                new List<Movie> {gravity, oceanEleven}
             );
 
             var julia = PersonFactory.CreateActor(
-                "Julia Roberts", new List<Movie>(), new List<Movie> {oceanEleven}
+                PersonFactory.CreatePerson("Julia Roberts", "1980-06-04", '-'), new List<Movie>(),
+                new List<Movie> {oceanEleven}
             );
 
-            var antoine = PersonFactory.CreateDirector("Antoine Fuqua", new List<Movie> {trainingDay}, new List<Movie>());
-            var steven = PersonFactory.CreateDirector("Steven Soderbergh", new List<Movie> {oceanEleven},
+            var antoine = PersonFactory.CreateDirector(PersonFactory.CreatePerson("Antoine Fuqua", "1996-11-07", '-'),
+                new List<Movie> {trainingDay}, new List<Movie>());
+
+            var steven = PersonFactory.CreateDirector(PersonFactory.CreatePerson("Steven Soderbergh","1988-07-05",'-'), new List<Movie> {oceanEleven},
                 new List<Movie>());
-            var alfonso = PersonFactory.CreateDirector("Alfonso Curón", new List<Movie> {gravity}, new List<Movie>());
+            var alfonso = PersonFactory.CreateDirector(PersonFactory.CreatePerson("Alfonso Curón","1950-06-24",'-'), new List<Movie> {gravity}, new List<Movie>());
 
             trainingDay.Dir = antoine;
             gravity.Dir = alfonso;
-            oceanEleven.Dir= steven;
+            oceanEleven.Dir = steven;
 
             trainingDay.Actors.Add(denzelWashington);
             gravity.Actors.Add(sandraBullock);

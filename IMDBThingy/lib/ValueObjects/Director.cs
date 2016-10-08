@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 
-using IMDBThingy.ValueTypeClasses;
-
 namespace IMDBThingy.lib.ValueObjects {
 
     public class Director : Person {
@@ -9,8 +7,8 @@ namespace IMDBThingy.lib.ValueObjects {
         public List<Movie> DirectedMovies { get; }
         public List<Movie> ActorInMovies { get; }
 
-        public Director(string firstName, string lastName, List<Movie> directedMovies,
-            List<Movie> actorInMovies) : base(firstName, lastName) {
+        public Director(string firstName, string lastName,DateOfBirth dateOfBirth, List<Movie> directedMovies,
+            List<Movie> actorInMovies) : base(firstName, lastName,dateOfBirth) {
             DirectedMovies = directedMovies;
             ActorInMovies = actorInMovies;
         }

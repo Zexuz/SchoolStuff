@@ -19,19 +19,15 @@ namespace IMDBThingy.lib {
 
         public Movie CreateMovieFromConsole() {
             var movie = CreateMovieShell();
-            Console.WriteLine("Director name:");
-            var director = PersonFactory.CreateDirector(Console.ReadLine(), new List<Movie> {movie}, new List<Movie>());
 
-            var actors = new List<Actor>();
-
-            do {
-                Console.WriteLine("Actors name:");
-                var actor = PersonFactory.CreateActor(Console.ReadLine(), new List<Movie>(), new List<Movie> {movie});
-                actors.Add(actor);
-                Console.WriteLine("If there is no more actors, press enter, else type 'y'");
-            } while (Console.ReadLine().ToLower().Equals("y"));
+            var director = PersonFactory.CreateDirector(
+                PersonFactory.CreatePersonFromConsole(),
+                new List<Movie> {movie},
+                new List<Movie>()
+            );
 
 
+            var actors = GetAllActorsFromConsole(movie);
             movie.Dir = director;
             movie.Actors.AddRange(actors);
 
@@ -43,6 +39,24 @@ namespace IMDBThingy.lib {
             _ps.Add(director);
 
             return movie;
+        }
+
+        private IEnumerable<Person> GetAllActorsFromConsole(Movie movie ) {
+            var actors = new List<Actor>();
+
+
+            do {
+                var actor = PersonFactory.CreateActor(
+                    PersonFactory.CreatePersonFromConsole(),
+                    new List<Movie> {movie},
+                    new List<Movie>()
+                );
+
+                actors.Add(actor);
+                Console.WriteLine("If there is no more actors, press enter, else type 'y'");
+            } while (Console.ReadLine().ToLower().Equals("y"));
+
+            return actors;
         }
 
         private static Movie CreateMovieShell() {
