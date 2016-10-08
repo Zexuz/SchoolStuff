@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
 using IMDBThingy.lib.ValueObjects;
-using IMDBThingy.ValueTypeClasses;
 
-namespace IMDBThingy.Factory {
+namespace IMDBThingy.lib.Factory {
 
     public class PersonFactory {
 

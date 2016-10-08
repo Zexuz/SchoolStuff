@@ -49,6 +49,7 @@
     <Compile Include="lib\Servicies\MovieService.cs" />
     <Compile Include="lib\Servicies\PersonService.cs" />
     <Compile Include="lib\Title.cs" />
+    <Compile Include="lib\ValueObjects\ProductionYear.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="lib\ValueObjects\Actor.cs" />

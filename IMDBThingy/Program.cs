@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 using IMDBThingy.lib;
 using IMDBThingy.lib.Servicies;
-using IMDBThingy.lib.ValueObjects;
-using IMDBThingy.ValueTypeClasses;
 
 namespace IMDBThingy {
 
@@ -20,16 +17,13 @@ namespace IMDBThingy {
         public void Start() {
             _movieService = new MovieService();
             _personService = new PersonService();
-            _menu = new Menu();
+            _menu = new Menu(_personService);
 
             _dic = new Dictionary<char, Action> {
                 {'a', AddMovieFromConsole},
                 {'s', SearchAndPrintMovies},
                 {'d', SearchAndPrintPersons}
             };
-
-            var movies = new List<Movie>(_movieService.GetAllMovies());
-            var persons = new List<Person>(_personService.GetAllMovieWorkers());
 
             Loop();
         }

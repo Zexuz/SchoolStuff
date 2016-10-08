@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using IMDBThingy.Factory;
+using IMDBThingy.lib.Factory;
 using IMDBThingy.lib.ValueObjects;
 using IMDBThingy.ValueTypeClasses;
 

@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using IMDBThingy.Factory;
+using IMDBThingy.lib.Factory;
+using IMDBThingy.lib.Servicies;
 using IMDBThingy.lib.ValueObjects;
 
 namespace IMDBThingy.lib {
 
     public class Menu {
 
-        public Menu() {}
+        private readonly PersonService _ps;
+
+        public Menu(PersonService ps) {
+            _ps = ps;
+        }
 
         public void AskForPersonName(string text) {}
 
@@ -29,6 +34,13 @@ namespace IMDBThingy.lib {
 
             movie.Dir = director;
             movie.Actors.AddRange(actors);
+
+            //last minute code...
+            foreach (var actor in actors) {
+                _ps.Add(actor);
+            }
+
+            _ps.Add(director);
 
             return movie;
         }
@@ -56,7 +68,5 @@ namespace IMDBThingy.lib {
         }
 
     }
-
-
 
 }

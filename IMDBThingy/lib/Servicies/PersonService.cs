@@ -16,6 +16,9 @@ namespace IMDBThingy.lib.Servicies {
         public void Add(Person p) {
             _movieWorkers.Add(p);
         }
+        public void AddRange(List<Person> p ) {
+            _movieWorkers.AddRange(p);
+        }
 
         public void Remove(Person p) {
             _movieWorkers.Remove(p);
