@@ -14,7 +14,7 @@ namespace IMDBThingy.lib.ValueObjects {
         }
 
         public override string ToString() {
-            return $"{FirstName} {LastName} ( {GetType().Name})";
+            return $"{FirstName} {LastName} ( {GetType().Name}), born {DateOfBirth}";
         }
 
     }
