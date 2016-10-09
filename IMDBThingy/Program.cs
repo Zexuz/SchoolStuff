@@ -52,8 +52,8 @@ namespace IMDBThingy {
 
         public void SearchAndPrintPersons() {
             var searchString = Console.ReadLine();
-            foreach (var actors in _personService.SearchByName(searchString)) {
-                Console.WriteLine(actors);
+            foreach (var movieWorkers in _personService.SearchByName(searchString)) {
+                Console.WriteLine(movieWorkers);
             }
         }
 

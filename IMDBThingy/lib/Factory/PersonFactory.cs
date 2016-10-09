@@ -7,16 +7,16 @@ namespace IMDBThingy.lib.Factory {
 
     public class PersonFactory {
 
-        public static Person CreatePersonFromConsole() {
-            Console.WriteLine("Person name:");
+        public static Person CreatePersonFromConsole(string actorOrDirector = "Actors") {
+            Console.WriteLine($"{actorOrDirector} name:");
 
             var name = Console.ReadLine().Split(' ');
 
-            Console.WriteLine("What year is 'it' born?");
+            Console.WriteLine("Born year? Eg:1990");
             var year = int.Parse(Console.ReadLine());
-            Console.WriteLine("What month is 'it' born?");
+            Console.WriteLine("Born month? Eg:7");
             var month = int.Parse(Console.ReadLine());
-            Console.WriteLine("What day is 'it' born?");
+            Console.WriteLine("Born day? Eg:30");
             var day = int.Parse(Console.ReadLine());
 
 

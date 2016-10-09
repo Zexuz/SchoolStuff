@@ -21,7 +21,7 @@ namespace IMDBThingy.lib {
             var movie = CreateMovieShell();
 
             var director = PersonFactory.CreateDirector(
-                PersonFactory.CreatePersonFromConsole(),
+                PersonFactory.CreatePersonFromConsole("Directors"),
                 new List<Movie> {movie},
                 new List<Movie>()
             );
@@ -48,8 +48,8 @@ namespace IMDBThingy.lib {
             do {
                 var actor = PersonFactory.CreateActor(
                     PersonFactory.CreatePersonFromConsole(),
-                    new List<Movie> {movie},
-                    new List<Movie>()
+                    new List<Movie> (),
+                    new List<Movie>{movie}
                 );
 
                 actors.Add(actor);
