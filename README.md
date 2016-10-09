@@ -11,4 +11,4 @@ Search Movie and People by Title and Name &#9745;
   
 Handel Exceptions &#9633;
 
-Defeat the AplhaGo and become worlbest Go player!
+Defeat the AplhaGo and become worlbest Go player &#9633;
