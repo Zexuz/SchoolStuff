@@ -4,7 +4,8 @@ using System.Text;
 
 namespace MMDB.MovieDatabase.Domain
 {
-    class CastOrCrew
+
+    public class CastOrCrew
     {
         public Guid Id { get; set; }
 
@@ -51,5 +52,8 @@ namespace MMDB.MovieDatabase.Domain
             Name = name;
             DateOfBirth = dateOfBirth;
         }
+
+        public CastOrCrew() {}
+
     }
 }

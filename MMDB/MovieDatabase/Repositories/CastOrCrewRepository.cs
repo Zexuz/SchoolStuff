@@ -6,7 +6,7 @@ namespace MMDB.MovieDatabase.Repositories
 {
     class CastOrCrewRepository
     {
-        private List<CastOrCrew> people;
+        private readonly List<CastOrCrew> _people;
         private static CastOrCrewRepository _instance;
 
         public static CastOrCrewRepository Instance
@@ -23,28 +23,28 @@ namespace MMDB.MovieDatabase.Repositories
 
         private CastOrCrewRepository()
         {
-            people = new List<CastOrCrew>();
+            _people = new List<CastOrCrew>();
         }
 
         public void Add(CastOrCrew castOrCrew)
         {
-            people.Add(castOrCrew);
+            _people.Add(castOrCrew);
         }
 
  
         public CastOrCrew FindBy(string name)
         {
-            return people.Find(x => x.Name.ToLower() == name.ToLower());
+            return _people.Find(x => string.Equals(x.Name, name, StringComparison.CurrentCultureIgnoreCase));
         }
 
         public CastOrCrew FindBy(Guid id)
         {
-            return people.Find(x=>x.Id == id);
+            return _people.Find(x=>x.Id == id);
         }
 
         public IEnumerable<CastOrCrew> AllPeople()
         {
-            return (IEnumerable<CastOrCrew>)people;
+            return _people;
         }
     }
 }

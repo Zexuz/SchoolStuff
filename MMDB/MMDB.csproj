@@ -46,6 +46,9 @@
     <Compile Include="MovieDatabase\Domain\Entities\Movie.cs" />
     <Compile Include="MovieDatabase\Domain\Entities\CastOrCrew.cs" />
     <Compile Include="MovieDatabase\Domain\ValueObjects\ProductionYear.cs" />
+    <Compile Include="MovieDatabase\Helper\ArrayOfCastOrCrew.cs" />
+    <Compile Include="MovieDatabase\Helper\ArrayOfMovies.cs" />
+    <Compile Include="MovieDatabase\Helper\MovieSerialiser.cs" />
     <Compile Include="MovieDatabase\Repositories\MovieRepository.cs" />
     <Compile Include="MovieDatabase\Repositories\CastOrCrewRepository.cs" />
     <Compile Include="MovieDatabase\Services\MovieService.cs" />
@@ -58,10 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MovieDatabase\Helper\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="CastOrCrew.xml" />
-    <Content Include="Movies.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
