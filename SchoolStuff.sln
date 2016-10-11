@@ -13,10 +13,16 @@ Global
 		{9895E064-CCA6-465E-9410-A5CCE3C860C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9895E064-CCA6-465E-9410-A5CCE3C860C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9895E064-CCA6-465E-9410-A5CCE3C860C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4444AB2B-8A3B-484B-9E45-7F25B72764C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4444AB2B-8A3B-484B-9E45-7F25B72764C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4444AB2B-8A3B-484B-9E45-7F25B72764C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4444AB2B-8A3B-484B-9E45-7F25B72764C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
 	Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMDBThingy", "IMDBThingy\IMDBThingy.csproj", "{9895E064-CCA6-465E-9410-A5CCE3C860C0}"
+	EndProject
+	Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMDB", "MMDB\MMDB.csproj", "{4444AB2B-8A3B-484B-9E45-7F25B72764C6}"
 	EndProject
