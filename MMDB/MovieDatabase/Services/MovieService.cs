@@ -18,9 +18,9 @@ namespace MMDB.MovieDatabase.Services
             repository.AddMovie(movie);
         }
 
-        public Movie FindMovieByTitle(string title)
+        public IEnumerable<Movie> FindMoviesByTitle(string title)
         {
-            return repository.FindMovieByTitle(title);
+            return repository.FindMoviesByTitle(title);
         }
 
         public IEnumerable<Movie> GetAllMovies() => repository.GetAllMovies();

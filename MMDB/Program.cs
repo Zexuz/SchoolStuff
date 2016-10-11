@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MMDB.MovieDatabase.Services;
 using MMDB.MovieDatabase.Domain;
 using MMDB.MovieDatabase.Domain.ValueObjects;
+using MMDB.MovieDatabase.Repositories;
 
 namespace MMDB {
 
@@ -24,7 +25,7 @@ namespace MMDB {
             _stopRuuning = false;
             _commandMapper = new Dictionary<char, Action> {
                 {'1', NewMovie},
-                {'2', FindMovie},
+                {'2', FindMovies},
                 {'3', FindActorOrDirector},
                 {'0', () => _stopRuuning = true},
                 {'p', PrintAllMovies}
@@ -99,14 +100,14 @@ namespace MMDB {
             Console.WriteLine();
         }
 
-        private void FindMovie() {
+        private void FindMovies() {
             Console.Clear();
             PrintFindMovieHeader();
 
             string title;
             AskFor(out title, "Enter the title of the movie you are searching for: ");
 
-            var movie = _movieService.FindMovieByTitle(title);
+            var movie = _movieService.FindMoviesByTitle(title);
             Console.Clear();
             PrintFindMovieHeader();
             if (movie == null) {
@@ -135,12 +136,12 @@ namespace MMDB {
             bool keepAskingForNewDirector = false;
             do {
                 AskFor(out name, "Enter the name of an director: ");
-                CastOrCrew actor = _castOrCrewService.FindBy(name);
-                if (actor == null) {
-                    actor = NewCastOrCrew(name);
+                CastOrCrew director = _castOrCrewService.FindBy(name);
+                if (director == null) {
+                    director = NewCastOrCrew(name);
                 }
-                _castOrCrewService.Add(actor);
-                movie.AddActor(actor);
+                _castOrCrewService.Add(director);
+                movie.AddDirector(director);
                 Console.Write("Do you want to add a new director to the movie? (y/N)");
                 char c = Console.ReadKey().KeyChar;
                 keepAskingForNewDirector = char.ToLower(c) == 'y';
@@ -169,20 +170,25 @@ namespace MMDB {
             return new CastOrCrew(name, dateOfBirth);
         }
 
-        private void PrintMovie(Movie movie) {
-            Console.WriteLine($"{movie.Title} ({movie.ProductionYear})");
-            Console.WriteLine("List of Directors:");
-            Console.WriteLine("---------------");
-            foreach (var director in movie.Director) {
-                Console.WriteLine($"{director.Name}");
-            }
+        private void PrintMovie(IEnumerable<Movie> movies) {
+            foreach (var movie in movies) {
+                Console.WriteLine("---------------------------------------------");
+                Console.WriteLine($"{movie.Title} ({movie.ProductionYear})");
+                Console.WriteLine();
+                Console.WriteLine("List of Directors:");
+                Console.WriteLine("---------------");
+                foreach (var director in movie.DirectorIds) {
+                    Console.WriteLine($"{_castOrCrewService.FindBy(director).Name}");
+                }
 
-            Console.WriteLine("---------------");
-            Console.WriteLine();
-            Console.WriteLine("List of actors:");
-            Console.WriteLine("---------------");
-            foreach (var actor in movie.Actors) {
-                Console.WriteLine($"{actor.Name}");
+                Console.WriteLine("---------------");
+                Console.WriteLine();
+                Console.WriteLine("List of actors:");
+                Console.WriteLine("---------------");
+                foreach (var actor in movie.ActorIds) {
+                    Console.WriteLine($"{_castOrCrewService.FindBy(actor).Name}");
+                }
+                Console.WriteLine("---------------------------------------------");
             }
         }
 

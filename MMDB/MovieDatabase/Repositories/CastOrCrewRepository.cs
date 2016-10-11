@@ -30,6 +30,10 @@ namespace MMDB.MovieDatabase.Repositories
         {
             _people.Add(castOrCrew);
         }
+        public void AddRange(List<CastOrCrew> castOrCrew)
+        {
+            _people.AddRange(castOrCrew);
+        }
 
  
         public CastOrCrew FindBy(string name)

@@ -12,13 +12,13 @@ namespace MMDB.MovieDatabase.Domain {
         public Guid Id { get; set; }
         public string Title { get; set; }
         public ProductionYear ProductionYear { get; set; }
-        public HashSet<Guid> Actors { get; set; }
-        public HashSet<Guid> Director { get; set; }
+        public HashSet<Guid> ActorIds { get; set; }
+        public HashSet<Guid> DirectorIds { get; set; }
 
 
         public Movie(string title, ProductionYear productionYear) {
-            Actors = new HashSet<Guid>();
-            Director = new HashSet<Guid>();
+            ActorIds = new HashSet<Guid>();
+            DirectorIds = new HashSet<Guid>();
             Id = Guid.NewGuid();
             ProductionYear = productionYear;
             Title = title;
@@ -26,26 +26,29 @@ namespace MMDB.MovieDatabase.Domain {
 
         public Movie() {}
 
-        public void AddActor(Guid actorId) {
-            AddCastOrCrew(actorId, true);
+        public void AddActor(CastOrCrew actor) {
+            AddCastOrCrew(actor, true);
         }
 
-        public void AddDirector(Guid directorId) {
-            AddCastOrCrew(directorId, false);
+        public void AddDirector(CastOrCrew director) {
+            AddCastOrCrew(director, false);
         }
 
-        private void AddCastOrCrew(Guid castOrCrewId, bool actor) {
+        private void AddCastOrCrew(CastOrCrew castOrCrew, bool actor) {
+            if (castOrCrew == null) return;
+
+            CastOrCrewRepository.Instance.Add(castOrCrew);
+
 
             if (actor) {
-                CastOrCrewRepository.Instance.FindBy(castOrCrewId).ActedMovies.Add(this);
-                Actors.Add(castOrCrewId);
+                castOrCrew.ActedMovies.Add(this);
+                ActorIds.Add(castOrCrew.Id);
             }
             else {
-                CastOrCrewRepository.Instance.FindBy(castOrCrewId).DirectedMovies.Add(this);
-                Director.Add(castOrCrewId);
+                castOrCrew.DirectedMovies.Add(this);
+                DirectorIds.Add(castOrCrew.Id);
             }
         }
-
 
     }
 

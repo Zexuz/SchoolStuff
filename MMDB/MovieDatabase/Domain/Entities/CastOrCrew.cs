@@ -20,6 +20,9 @@ namespace MMDB.MovieDatabase.Domain
         public HashSet<Movie> ActedMovies { get; set; }
 
         public HashSet<Movie> DirectedMovies { get; set; }
+
+        public HashSet<Guid> ActedMovieIds{ get; set; }
+        public HashSet<Guid> DirectedMoviesIds { get; set; }
         public string JobTitle
         {
             get
@@ -48,6 +51,8 @@ namespace MMDB.MovieDatabase.Domain
         {
             ActedMovies = new HashSet<Movie>();
             DirectedMovies = new HashSet<Movie>();
+            ActedMovieIds = new HashSet<Guid>();
+            DirectedMoviesIds = new HashSet<Guid>();
             Id = Guid.NewGuid();
             Name = name;
             DateOfBirth = dateOfBirth;

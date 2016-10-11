@@ -48,7 +48,7 @@
     <Compile Include="MovieDatabase\Domain\ValueObjects\ProductionYear.cs" />
     <Compile Include="MovieDatabase\Helper\ArrayOfCastOrCrew.cs" />
     <Compile Include="MovieDatabase\Helper\ArrayOfMovies.cs" />
-    <Compile Include="MovieDatabase\Helper\MovieSerialiser.cs" />
+    <Compile Include="MovieDatabase\Helper\Serialiser.cs" />
     <Compile Include="MovieDatabase\Repositories\MovieRepository.cs" />
     <Compile Include="MovieDatabase\Repositories\CastOrCrewRepository.cs" />
     <Compile Include="MovieDatabase\Services\MovieService.cs" />
