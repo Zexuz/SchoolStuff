@@ -20,6 +20,9 @@ namespace MMDB {
         }
 
         public Program() {
+            CastOrCrewRepository.Instance.Load();
+            MovieRepository.Instance.Load();
+
             _movieService = new MovieService();
             _castOrCrewService = new CastOrCrewService();
             _stopRuuning = false;
@@ -162,6 +165,9 @@ namespace MMDB {
                 keepAskingForNewActor = (char.ToLower(c) == 'y');
                 Console.WriteLine();
             } while (keepAskingForNewActor);
+
+            MovieRepository.Instance.Save();
+            CastOrCrewRepository.Instance.Save();
         }
 
         private CastOrCrew NewCastOrCrew(string name) {
@@ -188,6 +194,7 @@ namespace MMDB {
                 foreach (var actor in movie.ActorIds) {
                     Console.WriteLine($"{_castOrCrewService.FindBy(actor).Name}");
                 }
+
                 Console.WriteLine("---------------------------------------------");
             }
         }
@@ -200,8 +207,8 @@ namespace MMDB {
                 Console.WriteLine();
                 Console.WriteLine("Actor in the following movies:");
                 Console.WriteLine("------------------------------");
-                foreach (var movie in castOrCrew.ActedMovies) {
-                    Console.WriteLine($"{movie.Title}");
+                foreach (var movie in castOrCrew.ActedMovieIds) {
+                    Console.WriteLine($"{_movieService.Find(movie).Title}");
                 }
             }
 
@@ -209,8 +216,8 @@ namespace MMDB {
                 Console.WriteLine();
                 Console.WriteLine("Director for the following movies:");
                 Console.WriteLine("----------------------------------");
-                foreach (var movie in castOrCrew.DirectedMovies) {
-                    Console.WriteLine($"{movie.Title}");
+                foreach (var movie in castOrCrew.DirectedMoviesIds) {
+                    Console.WriteLine($"{_movieService.Find(movie).Title}");
                 }
             }
         }

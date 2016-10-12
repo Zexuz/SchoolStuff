@@ -40,11 +40,16 @@ namespace MMDB.MovieDatabase.Repositories {
             return movies.FindAll(x => x.Title.ToLower().Contains(title.ToLower()));
         }
 
-        public void Load() {
+        public Movie FindBy(Guid id) {
+            return movies.Find(x => x.Id == id);
+        }
 
+        public void Load() {
             movies = new List<Movie>(Serialiser<Movie>.GetDataFromFile("Movies.xml"));
-            var castAndCrew = new List<CastOrCrew>(Serialiser<CastOrCrew>.GetDataFromFile("CastOrCrew.xml"));
-            CastOrCrewRepository.Instance.AddRange(castAndCrew);
+        }
+
+        public void Save() {
+            Serialiser<Movie>.SaveDataToFile(movies, "Movies.xml");
         }
 
     }

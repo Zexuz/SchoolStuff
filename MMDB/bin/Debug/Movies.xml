@@ -125,4 +125,19 @@
       <guid>6a1d3c8d-c617-416c-974b-e7e1c9f6d246</guid>
     </DirectorIds>
   </Movie>
+  <Movie>
+    <Id>fc8d3105-0bd3-488d-bf65-a74854a5a6be</Id>
+    <Title>The Movie</Title>
+    <ProductionYear>
+      <Value>2016</Value>
+    </ProductionYear>
+    <ActorIds>
+      <guid>c1729ecf-a60f-4d81-a4a8-521d838d66f3</guid>
+      <guid>18e363d0-8a69-4aec-ba60-a4281be919c8</guid>
+    </ActorIds>
+    <DirectorIds>
+      <guid>ad281b45-d08c-414a-a629-bbc38ed720a3</guid>
+      <guid>5604025b-8e52-470f-b19c-ea68db6ca2b2</guid>
+    </DirectorIds>
+  </Movie>
 </ArrayOfMovie>
