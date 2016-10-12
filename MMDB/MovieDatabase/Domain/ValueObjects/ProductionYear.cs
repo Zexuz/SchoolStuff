@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MMDB.MovieDatabase.Domain.ValueObjects
 {
-    class ProductionYear
+
+    public class ProductionYear
     {
         private readonly static int FirstMovieProductionYear = 1896;
         public int Value { get; set; }
@@ -54,5 +55,8 @@ namespace MMDB.MovieDatabase.Domain.ValueObjects
         {
             return $"{Value}";
         }
+
+        public ProductionYear() {}
+
     }
 }

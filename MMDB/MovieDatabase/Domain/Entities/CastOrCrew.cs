@@ -4,7 +4,8 @@ using System.Text;
 
 namespace MMDB.MovieDatabase.Domain
 {
-    class CastOrCrew
+
+    public class CastOrCrew
     {
         public Guid Id { get; set; }
 
@@ -12,13 +13,13 @@ namespace MMDB.MovieDatabase.Domain
 
         public DateTime DateOfBirth { get; set; }
 
-        public bool IsDirector { get { return DirectedMovies.Count > 0; }  }
+        public bool IsDirector => DirectedMoviesIds.Count > 0;
 
-        public bool IsActor { get { return ActedMovies.Count > 0; } }
+        public bool IsActor => ActedMovieIds.Count > 0;
 
-        public HashSet<Movie> ActedMovies { get; set; }
 
-        public HashSet<Movie> DirectedMovies { get; set; }
+        public HashSet<Guid> ActedMovieIds{ get; set; }
+        public HashSet<Guid> DirectedMoviesIds { get; set; }
         public string JobTitle
         {
             get
@@ -45,11 +46,14 @@ namespace MMDB.MovieDatabase.Domain
 
         public CastOrCrew(string name, DateTime dateOfBirth)
         {
-            ActedMovies = new HashSet<Movie>();
-            DirectedMovies = new HashSet<Movie>();
+            ActedMovieIds = new HashSet<Guid>();
+            DirectedMoviesIds = new HashSet<Guid>();
             Id = Guid.NewGuid();
             Name = name;
             DateOfBirth = dateOfBirth;
         }
+
+        public CastOrCrew() {}
+
     }
 }

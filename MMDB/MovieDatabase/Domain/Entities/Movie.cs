@@ -3,38 +3,51 @@
 using System;
 using System.Collections.Generic;
 
+using MMDB.MovieDatabase.Repositories;
+
 namespace MMDB.MovieDatabase.Domain {
 
-    class Movie {
+    public class Movie {
 
-        private CastOrCrew _director;
         public Guid Id { get; set; }
         public string Title { get; set; }
         public ProductionYear ProductionYear { get; set; }
-        public HashSet<CastOrCrew> Actors { get; set; }
+        public HashSet<Guid> ActorIds { get; set; }
+        public HashSet<Guid> DirectorIds { get; set; }
 
-        public CastOrCrew Director {
-            get { return _director; }
-            set {
-                _director = value;
-                _director.DirectedMovies.Add(this);
-            }
-        }
 
         public Movie(string title, ProductionYear productionYear) {
-            Actors = new HashSet<CastOrCrew>();
+            ActorIds = new HashSet<Guid>();
+            DirectorIds = new HashSet<Guid>();
             Id = Guid.NewGuid();
             ProductionYear = productionYear;
             Title = title;
         }
 
-        public void AddActor(CastOrCrew actor) {
-            if (actor == null) {
-                return;
-            }
+        public Movie() {}
 
-            actor.ActedMovies.Add(this);
-            Actors.Add(actor);
+        public void AddActor(CastOrCrew actor) {
+            AddCastOrCrew(actor, true);
+        }
+
+        public void AddDirector(CastOrCrew director) {
+            AddCastOrCrew(director, false);
+        }
+
+        private void AddCastOrCrew(CastOrCrew castOrCrew, bool actor) {
+            if (castOrCrew == null) return;
+
+            CastOrCrewRepository.Instance.Add(castOrCrew);
+
+
+            if (actor) {
+                ActorIds.Add(castOrCrew.Id);
+                castOrCrew.ActedMovieIds.Add(Id);
+            }
+            else {
+                DirectorIds.Add(castOrCrew.Id);
+                castOrCrew.DirectedMoviesIds.Add(Id);
+            }
         }
 
     }

@@ -1,50 +1,64 @@
 ﻿using MMDB.MovieDatabase.Domain;
+
 using System;
 using System.Collections.Generic;
 
-namespace MMDB.MovieDatabase.Repositories
-{
-    class CastOrCrewRepository
-    {
-        private List<CastOrCrew> people;
+using MMDB.MovieDatabase.Helper;
+
+namespace MMDB.MovieDatabase.Repositories {
+
+    class CastOrCrewRepository {
+
+        private readonly List<CastOrCrew> _people;
         private static CastOrCrewRepository _instance;
 
-        public static CastOrCrewRepository Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
+        public static CastOrCrewRepository Instance {
+            get {
+                if (_instance == null) {
                     _instance = new CastOrCrewRepository();
                 }
                 return _instance;
             }
         }
 
-        private CastOrCrewRepository()
-        {
-            people = new List<CastOrCrew>();
+        private CastOrCrewRepository() {
+            _people = new List<CastOrCrew>();
         }
 
-        public void Add(CastOrCrew castOrCrew)
-        {
-            people.Add(castOrCrew);
+        public void Add(CastOrCrew castOrCrew) {
+            _people.Add(castOrCrew);
         }
 
- 
-        public CastOrCrew FindBy(string name)
-        {
-            return people.Find(x => x.Name.ToLower() == name.ToLower());
+        public void AddRange(List<CastOrCrew> castOrCrew) {
+            _people.AddRange(castOrCrew);
         }
 
-        public CastOrCrew FindBy(Guid id)
-        {
-            return people.Find(x=>x.Id == id);
+
+        public List<CastOrCrew> FindBy(string searchText) {
+            return
+                _people.FindAll(
+                    x =>
+                        x.Name.Contains(searchText, true) ||
+                        x.DateOfBirth.ToString("yyyy-MM-dd").Contains(searchText, true));
         }
 
-        public IEnumerable<CastOrCrew> AllPeople()
-        {
-            return (IEnumerable<CastOrCrew>)people;
+        public CastOrCrew FindBy(Guid id) {
+            return _people.Find(x => x.Id == id);
         }
+
+        public IEnumerable<CastOrCrew> AllPeople() {
+            return _people;
+        }
+
+        public void Save() {
+            Serialiser<CastOrCrew>.SaveDataToFile(_people, "CastOrCrew.xml");
+        }
+
+        public void Load() {
+            var castAndCrew = new List<CastOrCrew>(Serialiser<CastOrCrew>.GetDataFromFile("CastOrCrew.xml"));
+            _people.AddRange(castAndCrew);
+        }
+
     }
+
 }
