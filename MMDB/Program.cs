@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using MMDB.MovieDatabase.Services;
 using MMDB.MovieDatabase.Domain;
@@ -30,6 +31,7 @@ namespace MMDB {
                 {'1', NewMovie},
                 {'2', FindMovies},
                 {'3', FindActorOrDirector},
+                {'4', GetAllActoringFriends},
                 {'0', () => _stopRuuning = true},
                 {'p', PrintAllMovies}
             };
@@ -45,9 +47,12 @@ namespace MMDB {
 
         private void PrintMenu() {
             Console.WriteLine();
-            Console.WriteLine("+-----------------------------------------------------------------+");
-            Console.WriteLine("|   1='New movie', 2='Find movie', 3='Find cast/crew', 0='Quit'   |");
-            Console.WriteLine("+-----------------------------------------------------------------+");
+            Console.WriteLine(
+                "+-------------------------------------------------------------------------------------------+");
+            Console.WriteLine(
+                "|   1='New movie', 2='Find movie', 3='Find cast/crew', 4='Get all actor friends 0='Quit'    |");
+            Console.WriteLine(
+                "+-------------------------------------------------------------------------------------------+");
             Console.WriteLine();
         }
 
@@ -60,11 +65,26 @@ namespace MMDB {
                 var method = _commandMapper[command];
                 method();
             }
-            catch {
+            catch (Exception e) {
+                Console.WriteLine(e);
                 Console.WriteLine("Unknown command");
             }
         }
 
+        private void GetAllActoringFriends() {
+            Console.Clear();
+            Console.WriteLine("Actors name:");
+            var str = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine($"{str} has co stared whit:");
+            var actor = _castOrCrewService.FindBy(str);
+            foreach (var nameGroup  in _castOrCrewService.GetAllActingFriends(actor)) {
+                Console.WriteLine("Movie: {0}", MovieRepository.Instance.FindBy(nameGroup.Key.First()).Title);
+                foreach (var a in nameGroup) {
+                    Console.WriteLine("\t{0}", a.Name);
+                }
+            }
+        }
 
         private void FindActorOrDirector() {
             Console.Clear();

@@ -42,9 +42,11 @@ namespace MMDB.MovieDatabase.Domain {
 
             if (actor) {
                 ActorIds.Add(castOrCrew.Id);
+                castOrCrew.ActedMovieIds.Add(Id);
             }
             else {
                 DirectorIds.Add(castOrCrew.Id);
+                castOrCrew.DirectedMoviesIds.Add(Id);
             }
         }
 

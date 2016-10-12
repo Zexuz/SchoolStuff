@@ -13,9 +13,9 @@ namespace MMDB.MovieDatabase.Domain
 
         public DateTime DateOfBirth { get; set; }
 
-        public bool IsDirector => ActedMovieIds.Count > 0;
+        public bool IsDirector => DirectedMoviesIds.Count > 0;
 
-        public bool IsActor => DirectedMoviesIds.Count > 0;
+        public bool IsActor => ActedMovieIds.Count > 0;
 
 
         public HashSet<Guid> ActedMovieIds{ get; set; }
