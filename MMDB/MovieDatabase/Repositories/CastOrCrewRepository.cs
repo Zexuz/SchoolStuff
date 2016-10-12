@@ -34,8 +34,12 @@ namespace MMDB.MovieDatabase.Repositories {
         }
 
 
-        public CastOrCrew FindBy(string name) {
-            return _people.Find(x => string.Equals(x.Name, name, StringComparison.CurrentCultureIgnoreCase));
+        public List<CastOrCrew> FindBy(string searchText) {
+            return
+                _people.FindAll(
+                    x =>
+                        x.Name.Contains(searchText, true) ||
+                        x.DateOfBirth.ToString("yyyy-MM-dd").Contains(searchText, true));
         }
 
         public CastOrCrew FindBy(Guid id) {

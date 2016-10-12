@@ -140,4 +140,17 @@
       <guid>5604025b-8e52-470f-b19c-ea68db6ca2b2</guid>
     </DirectorIds>
   </Movie>
+  <Movie>
+    <Id>03e79b66-1ae1-4c83-bb30-6020ebb4c5db</Id>
+    <Title>TEST</Title>
+    <ProductionYear>
+      <Value>2016</Value>
+    </ProductionYear>
+    <ActorIds>
+      <guid>18e363d0-8a69-4aec-ba60-a4281be919c8</guid>
+    </ActorIds>
+    <DirectorIds>
+      <guid>ad281b45-d08c-414a-a629-bbc38ed720a3</guid>
+    </DirectorIds>
+  </Movie>
 </ArrayOfMovie>

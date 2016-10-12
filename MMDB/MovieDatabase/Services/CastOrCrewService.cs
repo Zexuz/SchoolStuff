@@ -23,7 +23,7 @@ namespace MMDB.MovieDatabase.Services {
             return repository.FindBy(id);
         }
 
-        public CastOrCrew FindBy(string name) {
+        public List<CastOrCrew> FindBy(string name) {
             return repository.FindBy(name);
         }
 

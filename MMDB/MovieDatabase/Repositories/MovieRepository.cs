@@ -36,8 +36,8 @@ namespace MMDB.MovieDatabase.Repositories {
             movies.Add(movie);
         }
 
-        public IEnumerable<Movie> FindMoviesByTitle(string title) {
-            return movies.FindAll(x => x.Title.ToLower().Contains(title.ToLower()));
+        public IEnumerable<Movie> FindMoviesByTitle(string searchString) {
+            return movies.FindAll(x => x.Title.Contains(searchString,true) || x.ProductionYear.ToString().Contains(searchString,true));
         }
 
         public Movie FindBy(Guid id) {
