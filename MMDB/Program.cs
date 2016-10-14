@@ -31,7 +31,6 @@ namespace MMDB {
                 {'1', NewMovie},
                 {'2', FindMovies},
                 {'3', FindActorOrDirector},
-                {'4', GetAllActoringFriends},
                 {'5', GodLookUp},
                 {'0', () => _stopRuuning = true},
                 {'p', PrintAllMovies}
@@ -49,11 +48,11 @@ namespace MMDB {
         private void PrintMenu() {
             Console.WriteLine();
             Console.WriteLine(
-                "+--------------------------------------------------------------------------------------------------------------------+");
+                "+-----------------------------------------------------------------------------------------+");
             Console.WriteLine(
-                "|   1='New movie', 2='Find movie', 3='Find cast/crew', 4='Get all actor friends 5='Search for everyting' 0='Quit'    |");
+                "|   1='New movie', 2='Find movie', 3='Find cast/crew', 5='Search for everyting' 0='Quit'  |");
             Console.WriteLine(
-                "+--------------------------------------------------------------------------------------------------------------------+");
+                "+-----------------------------------------------------------------------------------------+");
             Console.WriteLine();
         }
 
@@ -89,18 +88,15 @@ namespace MMDB {
             PrintMovies(movieMaches);
         }
 
-        private void GetAllActoringFriends() {
-            Console.Clear();
-            Console.WriteLine("Actors name:");
-            var str = Console.ReadLine();
-            Console.Clear();
-            Console.WriteLine($"{str} has co stared whit:");
+        private void GetAllActoringFriends(string actorName) {
+            var str = actorName;
+            Console.WriteLine();
+            Console.WriteLine("Co stars");
+            Console.WriteLine("-----------------------");
             var actor = _castOrCrewService.FindBy(str).First();
-            foreach (var nameGroup  in _castOrCrewService.GetAllActingFriends(actor)) {
-                Console.WriteLine("Movie: {0}", MovieRepository.Instance.FindBy(nameGroup.Key.First()).Title);
-                foreach (var a in nameGroup) {
-                    Console.WriteLine("\t{0}", a.Name);
-                }
+            foreach (var item  in _castOrCrewService.GetAllActingFriends(actor)) {
+                var moviesString = item.Value.Aggregate("", (current, movie) => current + movie.Title + ", ");
+                Console.WriteLine($" {item.Key.Name} :{moviesString.Substring(0, moviesString.Length - 2)}");
             }
         }
 
@@ -114,9 +110,12 @@ namespace MMDB {
             PrintFindActorDirectorHeader();
             if (castOrCrew == null) {
                 Console.WriteLine($"Cannot find {name}");
+                return;
             }
-            else {
-                PrintCastOrCrew(castOrCrew);
+
+            PrintCastOrCrew(castOrCrew);
+            if (castOrCrew.IsActor) {
+                GetAllActoringFriends(castOrCrew.Name);
             }
         }
 
