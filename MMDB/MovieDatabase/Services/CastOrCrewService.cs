@@ -27,7 +27,31 @@ namespace MMDB.MovieDatabase.Services {
             return repository.FindBy(name);
         }
 
-        public IEnumerable<IGrouping<HashSet<Guid>, CastOrCrew>> GetAllActingFriends(CastOrCrew actor) {
+        /*
+
+  public IEnumerable<IGrouping<HashSet<Guid>, CastOrCrew>> GetAllActingFriends(CastOrCrew actor) {
+             if (!actor.IsActor) throw new Exception("Actor needs to be actor!!");
+
+             //get acted movies
+             var actedMovies = actor.ActedMovieIds.Select(movieId => MovieRepository.Instance.FindBy(movieId)).ToList();
+
+             //get all actors in acted movies
+
+             var actors = new List<CastOrCrew>();
+             foreach (var movie in actedMovies) {
+                 actors.AddRange(
+                     movie.ActorIds.Select(actorId => CastOrCrewRepository.Instance.FindBy(actorId))
+                         .Where(a => a.IsActor && a.Id != actor.Id));
+             }
+             //(from movie in actedMovies from actorId in movie.ActorIds select CastOrCrewRepository.Instance.FindBy(actorId) into a where a.IsActor && a.Id != actor.Id select a).ToList();
+
+             IEnumerable<CastOrCrew> allActors = actors;
+
+             return allActors.GroupBy(a => a.ActedMovieIds);
+         }
+ */
+
+        public Dictionary<CastOrCrew, List<Movie>> GetAllActingFriends(CastOrCrew actor) {
             if (!actor.IsActor) throw new Exception("Actor needs to be actor!!");
 
             //get acted movies
@@ -35,17 +59,16 @@ namespace MMDB.MovieDatabase.Services {
 
             //get all actors in acted movies
 
-            var actors = new List<CastOrCrew>();
+            var listOfAllCoActors = new HashSet<CastOrCrew>();
             foreach (var movie in actedMovies) {
-                actors.AddRange(
-                    movie.ActorIds.Select(actorId => CastOrCrewRepository.Instance.FindBy(actorId))
-                        .Where(a => a.IsActor && a.Id != actor.Id));
+                var actors = movie.ActorIds.Select(actorId => CastOrCrewRepository.Instance.FindBy(actorId))
+                    .Where(a => a.IsActor && a.Id != actor.Id);
+                foreach (var a in actors) {
+                    listOfAllCoActors.Add(a);
+                }
             }
-            //(from movie in actedMovies from actorId in movie.ActorIds select CastOrCrewRepository.Instance.FindBy(actorId) into a where a.IsActor && a.Id != actor.Id select a).ToList();
 
-            IEnumerable<CastOrCrew> allActors = actors;
-
-            return allActors.GroupBy(a => a.ActedMovieIds);
+            return listOfAllCoActors.ToDictionary(a => a, a => FindBy(a.Id).ActedMovieIds.Select(movieId => MovieRepository.Instance.FindBy(movieId)).Where(movie => movie.ActorIds.Contains(actor.Id)).ToList());
         }
 
     }

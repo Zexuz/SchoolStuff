@@ -153,4 +153,18 @@
       <guid>ad281b45-d08c-414a-a629-bbc38ed720a3</guid>
     </DirectorIds>
   </Movie>
+  <Movie>
+    <Id>309452bd-ea18-4d6f-bfc3-7f84d8e3499f</Id>
+    <Title>This is a Test Movie</Title>
+    <ProductionYear>
+      <Value>2016</Value>
+    </ProductionYear>
+    <ActorIds>
+      <guid>8ca894e7-9bdf-4a96-ac2f-41055964941f</guid>
+      <guid>4082b33d-2f02-4aab-ae06-1b0eb0ad523c</guid>
+    </ActorIds>
+    <DirectorIds>
+      <guid>ad281b45-d08c-414a-a629-bbc38ed720a3</guid>
+    </DirectorIds>
+  </Movie>
 </ArrayOfMovie>
