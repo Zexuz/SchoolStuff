@@ -10,6 +10,7 @@
     <Window.Resources>
         <local:SearchResultConverter x:Key="SearchResultConverter" />
         <local:VisibilityConverter x:Key="VisibilityConverter" />
+        <BitmapImage x:Key="ActorImage" UriSource="Resources/actor.png" />
     </Window.Resources>
 
     <Grid Margin="5">
@@ -40,22 +41,10 @@
         <ListBox Name="MovieList" Grid.Row="1" Grid.Column="0" Margin="5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding}" />
-
-                        <!--TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding}" />
-                        <Image
-                            HorizontalAlignment="Left"
-                            Height="100"
-                            Margin="10,10,0,0"
-                            VerticalAlignment="Top"
-                            Width="100"
-                            Loaded="Image_Loaded"/-->
-                    </Grid>
+                    <StackPanel Orientation="Horizontal" Height="50">
+                        <Image Source="{StaticResource ActorImage}" />
+                        <TextBlock FontSize="13" VerticalAlignment="Center" Text="{Binding Converter={StaticResource SearchResultConverter},ConverterParameter={local:String RealName}}" />
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -77,12 +66,12 @@
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Margin="5"
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" FontWeight="Bold" FontSize="20"
                        Text="{Binding ElementName=MovieList, Path=SelectedValue}" />
-            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="5">Directors</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold" FontSize="14">Directors</TextBlock>
             <TextBlock Grid.Row="2" Grid.Column="0" Margin="5"
                        Text="{Binding ElementName=MovieList, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Directors}}" />
-            <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="5">Actors</TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold" FontSize="14">Actors</TextBlock>
             <TextBlock Grid.Row="4" Grid.Column="0" Margin="5"
                        Text="{Binding ElementName=MovieList, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Actors}}" />
         </Grid>

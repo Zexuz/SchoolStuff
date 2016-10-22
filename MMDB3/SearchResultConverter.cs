@@ -35,6 +35,11 @@ namespace MMDB3 {
                             item.ActorIds.Select(
                                 actorIds => CastOrCrewRepository.Instance.FindBy(actorIds).Name).ToList()
                         );
+                    case "RealName":
+                        return $"{item.Title} ({item.ProductionYear.Value})";
+                    case "Image":
+                        return "./Resources/movie.png";
+
                     default:
                         return item;
                 }
@@ -56,6 +61,9 @@ namespace MMDB3 {
                             from movie in MovieRepository.Instance.movies
                             where movie.Id == movieId
                             select $"{movie.Title}({movie.ProductionYear})").ToList());
+                    case "RealName":
+                        return $"{cast.Name} ({cast.DateOfBirth:yyy-MM-dd})";
+
                     default:
                         return cast;
                 }
