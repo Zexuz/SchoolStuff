@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<ArrayOfCastOrCrew xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CastOrCrew>
+    <Id>509322a9-7aae-4d9d-92dc-9ec5f3f8be4e</Id>
+    <Name>Denzel Washington</Name>
+    <DateOfBirth>1954-12-28T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>9c088d08-c5d5-4011-8b6c-20a24bd8b5b5</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>17de1c6e-c489-4c70-8891-b512a083e253</Id>
+    <Name>Robert De Niro</Name>
+    <DateOfBirth>1943-08-17T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>7853cb2c-c8ed-426c-88db-0ca0bd3b7a46</guid>
+      <guid>4ecd1fad-b138-468c-92d9-fb43bc707830</guid>
+      <guid>4635e31e-8d8e-45a4-ad4b-0585cde1f0fc</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>53a56681-8ce1-410c-8841-ce68c33e2b85</Id>
+    <Name>Al Pacino</Name>
+    <DateOfBirth>1940-04-25T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>876f446b-9a43-4e7e-8281-8860a07e8c9a</guid>
+      <guid>4ecd1fad-b138-468c-92d9-fb43bc707830</guid>
+      <guid>4635e31e-8d8e-45a4-ad4b-0585cde1f0fc</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>c719337c-8789-4c11-bf0f-1da6e5214737</Id>
+    <Name>Tom Hanks</Name>
+    <DateOfBirth>1956-07-09T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>dcf3c33d-cd52-4967-8f8c-e47d192c4b86</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>5abbf019-415c-4ca7-b389-595879cd2093</Id>
+    <Name>Natalie Portman</Name>
+    <DateOfBirth>1981-06-09T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>ab71e193-4e82-40a8-b0d4-4622f792393d</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>8ca894e7-9bdf-4a96-ac2f-41055964941f</Id>
+    <Name>Mark Ruffalo</Name>
+    <DateOfBirth>1967-11-22T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>12034cc8-ec5b-4163-88f7-fc94b9c5e91d</guid>
+      <guid>2adf338d-27a5-4965-8189-3c2d172e8eee</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>4082b33d-2f02-4aab-ae06-1b0eb0ad523c</Id>
+    <Name>Leonardo DiCaprio</Name>
+    <DateOfBirth>1974-11-11T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>12034cc8-ec5b-4163-88f7-fc94b9c5e91d</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>2e69d743-8d4d-4665-b767-70b60ee7595f</Id>
+    <Name>Johnny Depp</Name>
+    <DateOfBirth>1963-06-09T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>e8079612-191a-4a5a-99af-cf4113e5185c</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>57a8f39c-9f8b-433f-a417-5e3c0a8af853</Id>
+    <Name>Edward Norton</Name>
+    <DateOfBirth>1969-08-18T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>55728aec-1f1f-4937-a2d5-a6cd7c1b1e88</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>469adb0e-014d-423e-a884-b7a15a2f3ad2</Id>
+    <Name>Brad Pitt</Name>
+    <DateOfBirth>1963-12-18T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>55728aec-1f1f-4937-a2d5-a6cd7c1b1e88</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>19dad596-88e9-481c-b7b7-3cce9655aa15</Id>
+    <Name>Keira Knightley</Name>
+    <DateOfBirth>1985-03-26T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>2adf338d-27a5-4965-8189-3c2d172e8eee</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>8dd1779e-24f4-4b34-890c-c2191716d224</Id>
+    <Name>Joe Pesci</Name>
+    <DateOfBirth>1943-02-09T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>7853cb2c-c8ed-426c-88db-0ca0bd3b7a46</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>22c516cc-0125-463d-9b4f-0d06e5f7087e</Id>
+    <Name>Morgan Freeman</Name>
+    <DateOfBirth>1937-06-01T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>945479a9-ce20-4354-888d-ec03543bb57f</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>9146b342-baea-481a-a2dc-a41054ac5105</Id>
+    <Name>Keanu Reeves</Name>
+    <DateOfBirth>1964-09-02T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>7be03f49-a328-4456-88c9-f8ff192e19cc</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>b715f5aa-bc46-4529-9291-93178e7d3d2e</Id>
+    <Name>Laurence Fishburne</Name>
+    <DateOfBirth>1961-07-30T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>7be03f49-a328-4456-88c9-f8ff192e19cc</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>158b427b-2a63-48d3-9cb7-d9b76186f345</Id>
+    <Name>Samuel L Jackson</Name>
+    <DateOfBirth>1948-12-21T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>0cdd2f3f-f1e7-4709-91d8-5a517aba7499</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>f7483c41-6874-45d7-bac6-4185aa5095c0</Id>
+    <Name>John Travolta</Name>
+    <DateOfBirth>1954-02-18T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>0cdd2f3f-f1e7-4709-91d8-5a517aba7499</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>8dd0e181-363e-4617-80bd-4311d679c816</Id>
+    <Name>Bruce Willis</Name>
+    <DateOfBirth>1955-03-19T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>0cdd2f3f-f1e7-4709-91d8-5a517aba7499</guid>
+      <guid>fa114eb7-7cda-4b81-b146-5d928ed9dbf2</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds />
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>44618f68-efdb-4e5a-b1a0-0ea594569ea5</Id>
+    <Name>Antoine Fuqua</Name>
+    <DateOfBirth>1966-01-19T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>9c088d08-c5d5-4011-8b6c-20a24bd8b5b5</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>53084d09-064f-4e6f-8b88-3840f34547c1</Id>
+    <Name>Ron Howard</Name>
+    <DateOfBirth>1954-03-01T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>dcf3c33d-cd52-4967-8f8c-e47d192c4b86</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>738aaf4a-0b3c-4fa0-ae04-b77f2638f4b4</Id>
+    <Name>Martin Scorsese</Name>
+    <DateOfBirth>1942-11-17T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>12034cc8-ec5b-4163-88f7-fc94b9c5e91d</guid>
+      <guid>7853cb2c-c8ed-426c-88db-0ca0bd3b7a46</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>5c7a4d4b-6d09-440c-825f-0400dc9a2d50</Id>
+    <Name>John Carney</Name>
+    <DateOfBirth>1972-01-01T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>2adf338d-27a5-4965-8189-3c2d172e8eee</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>e7ef17a6-e7bb-48ba-89ba-a7f890bb408f</Id>
+    <Name>David Fincher</Name>
+    <DateOfBirth>1962-08-28T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>55728aec-1f1f-4937-a2d5-a6cd7c1b1e88</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>c065a89b-57e2-4eea-9fd7-547647fc94b5</Id>
+    <Name>Lana Wachowski</Name>
+    <DateOfBirth>1965-06-21T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>7be03f49-a328-4456-88c9-f8ff192e19cc</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>185718a6-7506-4498-8f21-c9d922371385</Id>
+    <Name>Lilly Wachowski</Name>
+    <DateOfBirth>1969-12-29T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>7be03f49-a328-4456-88c9-f8ff192e19cc</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>e67fbbf6-d1e7-4780-9e39-aaa9fc78a019</Id>
+    <Name>Quentin Tarantino</Name>
+    <DateOfBirth>1963-03-27T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>0cdd2f3f-f1e7-4709-91d8-5a517aba7499</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>6a1d3c8d-c617-416c-974b-e7e1c9f6d246</Id>
+    <Name>John McTiernan</Name>
+    <DateOfBirth>1951-01-08T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>fa114eb7-7cda-4b81-b146-5d928ed9dbf2</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>863b66d1-22ea-4a6f-9d5c-ed2eb60043fe</Id>
+    <Name>George Lucas</Name>
+    <DateOfBirth>1944-05-14T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>ab71e193-4e82-40a8-b0d4-4622f792393d</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>fb5ef643-d526-42fb-8adc-3c0fa9238edc</Id>
+    <Name>Francis Ford Coppola</Name>
+    <DateOfBirth>1939-04-07T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>876f446b-9a43-4e7e-8281-8860a07e8c9a</guid>
+      <guid>4ecd1fad-b138-468c-92d9-fb43bc707830</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>1706a24e-3c35-4f3b-bd61-9e7c0f900e65</Id>
+    <Name>Mike Newell</Name>
+    <DateOfBirth>1942-03-28T00:00:00</DateOfBirth>
+    <ActedMovieIds />
+    <DirectedMovieIds>
+      <guid>e8079612-191a-4a5a-99af-cf4113e5185c</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+  <CastOrCrew>
+    <Id>eb3b7f9f-52b5-419e-999e-95a65ece2e9b</Id>
+    <Name>Clint Eastwood</Name>
+    <DateOfBirth>1930-05-31T00:00:00</DateOfBirth>
+    <ActedMovieIds>
+      <guid>945479a9-ce20-4354-888d-ec03543bb57f</guid>
+    </ActedMovieIds>
+    <DirectedMovieIds>
+      <guid>945479a9-ce20-4354-888d-ec03543bb57f</guid>
+      <guid>4635e31e-8d8e-45a4-ad4b-0585cde1f0fc</guid>
+    </DirectedMovieIds>
+  </CastOrCrew>
+</ArrayOfCastOrCrew>
