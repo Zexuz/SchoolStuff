@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using MMDB.MovieDatabase.Services;
+using MMDB.MovieDatabase.ValueObjects;
 
 
 namespace MMDB3 {
@@ -33,10 +34,14 @@ namespace MMDB3 {
 
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e) {
             var searchText = SearchTextBox.Text;
-            var everybody = _searchService.Search(searchText, true);
+            IEnumerable<SearchResultItem> everybody;
+
+            if (searchText.Trim().Length > 0)
+                everybody = _searchService.Search(searchText, true);
+            else
+                everybody = Enumerable.Empty<SearchResultItem>();
             SearchItems.ItemsSource = everybody;
         }
-
 
     }
 

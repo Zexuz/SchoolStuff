@@ -42,7 +42,37 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Height="50">
-                        <Image Source="{Binding Converter={StaticResource ImagePathConverter}}" />
+                        <Image Tag="{Binding Type}" Width="48" Height="48">
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Type}" Value="Director">
+                                            <Setter Property="Source"
+                                                    Value="pack://application:,,,/Resources/director.png" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="Actor">
+                                            <Setter Property="Source"
+                                                    Value="pack://application:,,,/Resources/actor.png" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="ActorDirector">
+                                            <Setter Property="Source"
+                                                    Value="pack://application:,,,/Resources/actor_director.png" />
+
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="Movie">
+                                            <Setter Property="Source"
+                                                    Value="pack://application:,,,/Resources/movie.png" />
+
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Type}" Value="None">
+                                            <Setter Property="Source"
+                                                    Value="pack://application:,,,/Resources/unknown.png" />
+
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                         <TextBlock FontSize="13" VerticalAlignment="Center"
                                    Text="{Binding Converter={StaticResource SearchResultConverter},ConverterParameter={local:String RealName}}" />
                     </StackPanel>
@@ -55,7 +85,8 @@
             <Button Width="20" Height="20">+</Button>
         </StackPanel>
 
-        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"> <!--Visibility="{Binding ElementName=MovieList, Path=SelectedValue, Converter={StaticResource VisibilityConverter}}" -->
+        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"
+              Visibility="{Binding ElementName=MovieList, Path=SelectedValue, Converter={StaticResource VisibilityConverter}}"> <!-- -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -68,7 +99,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Orientation="Horizontal" Height="50">
-                <Image Source="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource ImagePathConverter}}" />
+                <Image
+                    Source="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource ImagePathConverter}}" />
                 <TextBlock FontWeight="Bold" FontSize="20"
                            Text="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String RealName}}" />
             </StackPanel>
