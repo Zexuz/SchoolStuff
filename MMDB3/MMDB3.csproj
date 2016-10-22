@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ImagePath.cs" />
     <Compile Include="StringExtension.cs" />
     <Compile Include="MovieDatabase\Repositories\CastOrCrewRepository.cs" />
     <Compile Include="MovieDatabase\Domain\Entities\Movie.cs" />

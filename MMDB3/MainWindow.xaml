@@ -9,8 +9,8 @@
 
     <Window.Resources>
         <local:SearchResultConverter x:Key="SearchResultConverter" />
+        <local:ImagePath x:Key="ImagePathConverter" />
         <local:VisibilityConverter x:Key="VisibilityConverter" />
-        <BitmapImage x:Key="ActorImage" UriSource="Resources/actor.png" />
     </Window.Resources>
 
     <Grid Margin="5">
@@ -38,12 +38,13 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <ListBox Name="MovieList" Grid.Row="1" Grid.Column="0" Margin="5">
+        <ListBox Name="SearchItems" Grid.Row="1" Grid.Column="0" Margin="5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Height="50">
-                        <Image Source="{StaticResource ActorImage}" />
-                        <TextBlock FontSize="13" VerticalAlignment="Center" Text="{Binding Converter={StaticResource SearchResultConverter},ConverterParameter={local:String RealName}}" />
+                        <Image Source="{Binding Converter={StaticResource ImagePathConverter}}" />
+                        <TextBlock FontSize="13" VerticalAlignment="Center"
+                                   Text="{Binding Converter={StaticResource SearchResultConverter},ConverterParameter={local:String RealName}}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -66,14 +67,24 @@
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" FontWeight="Bold" FontSize="20"
-                       Text="{Binding ElementName=MovieList, Path=SelectedValue}" />
-            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold" FontSize="14">Directors</TextBlock>
+            <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Orientation="Horizontal" Height="50">
+                <Image Source="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource ImagePathConverter}}" />
+                <TextBlock FontWeight="Bold" FontSize="20"
+                           Text="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String RealName}}" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold"
+                       FontSize="14">
+                Directors
+            </TextBlock>
             <TextBlock Grid.Row="2" Grid.Column="0" Margin="5"
-                       Text="{Binding ElementName=MovieList, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Directors}}" />
-            <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold" FontSize="14">Actors</TextBlock>
+                       Text="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Directors}}" />
+            <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold"
+                       FontSize="14">
+                Actors
+            </TextBlock>
             <TextBlock Grid.Row="4" Grid.Column="0" Margin="5"
-                       Text="{Binding ElementName=MovieList, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Actors}}" />
+                       Text="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Actors}}" />
         </Grid>
 
     </Grid>

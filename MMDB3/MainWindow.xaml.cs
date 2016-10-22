@@ -34,7 +34,7 @@ namespace MMDB3 {
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e) {
             var searchText = SearchTextBox.Text;
             var everybody = _searchService.Search(searchText, true);
-            MovieList.ItemsSource = everybody;
+            SearchItems.ItemsSource = everybody;
         }
 
 
