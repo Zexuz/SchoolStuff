@@ -69,6 +69,15 @@ namespace MMDB3 {
                 }
             }
 
+            if (value.GetType() == typeof(Movie)) {
+                return typeof(Movie);
+            }
+
+            if (value.GetType() == typeof(CastOrCrew)) {
+                return typeof(CastOrCrew);
+            }
+
+
             throw new Exception($"Cannot convert from type {value.GetType().ToString()}");
         }
 

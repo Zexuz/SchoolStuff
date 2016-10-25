@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MMDB3"
+        xmlns:domain="clr-namespace:MMDB.MovieDatabase.Domain"
+        xmlns:entities="clr-namespace:MMDB3.MovieDatabase.Domain.Entities"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
 
@@ -107,13 +109,36 @@
 
             <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold"
                        FontSize="14">
-                Directors
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=SearchItems, Path=SelectedValue.ResultItem, Converter={StaticResource SearchResultConverter}}" Value="{x:Type domain:Movie}">
+                                <Setter Property="Text" Value="Directors:"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=SearchItems, Path=SelectedValue.ResultItem, Converter={StaticResource SearchResultConverter}}" Value="{x:Type entities:CastOrCrew}">
+                                <Setter Property="Text" Value="Directed in:"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
             </TextBlock>
             <TextBlock Grid.Row="2" Grid.Column="0" Margin="5"
                        Text="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Directors}}" />
             <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold"
                        FontSize="14">
-                Actors
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=SearchItems, Path=SelectedValue.ResultItem, Converter={StaticResource SearchResultConverter}}" Value="{x:Type domain:Movie}">
+                                <Setter Property="Text" Value="Actors:"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=SearchItems, Path=SelectedValue.ResultItem, Converter={StaticResource SearchResultConverter}}" Value="{x:Type entities:CastOrCrew}">
+                                <Setter Property="Text" Value="Acted in:"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+
             </TextBlock>
             <TextBlock Grid.Row="4" Grid.Column="0" Margin="5"
                        Text="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Actors}}" />
