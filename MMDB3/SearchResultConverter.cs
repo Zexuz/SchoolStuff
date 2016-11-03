@@ -18,6 +18,7 @@ namespace MMDB3 {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
             if (value == null) return null;
 
+            Console.WriteLine(parameter);
 
             if (value.GetType() == typeof(MovieSearchResultItem)) {
                 var item = (Movie) ((MovieSearchResultItem) value).ResultItem;
@@ -68,6 +69,15 @@ namespace MMDB3 {
                         return cast;
                 }
             }
+
+            if (value.GetType() == typeof(Movie)) {
+                return typeof(Movie);
+            }
+
+            if (value.GetType() == typeof(CastOrCrew)) {
+                return typeof(CastOrCrew);
+            }
+
 
             throw new Exception($"Cannot convert from type {value.GetType().ToString()}");
         }

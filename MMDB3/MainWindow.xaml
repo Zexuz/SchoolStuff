@@ -4,12 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MMDB3"
+        xmlns:domain="clr-namespace:MMDB.MovieDatabase.Domain"
+        xmlns:entities="clr-namespace:MMDB3.MovieDatabase.Domain.Entities"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
 
     <Window.Resources>
         <local:SearchResultConverter x:Key="SearchResultConverter" />
-        <local:ImagePath x:Key="ImagePathConverter" />
+        <local:ImageConverter x:Key="ImageConverter" />
         <local:VisibilityConverter x:Key="VisibilityConverter" />
     </Window.Resources>
 
@@ -42,37 +44,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Height="50">
-                        <Image Tag="{Binding Type}" Width="48" Height="48">
-                            <Image.Style>
-                                <Style TargetType="Image">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Type}" Value="Director">
-                                            <Setter Property="Source"
-                                                    Value="pack://application:,,,/Resources/director.png" />
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Type}" Value="Actor">
-                                            <Setter Property="Source"
-                                                    Value="pack://application:,,,/Resources/actor.png" />
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Type}" Value="ActorDirector">
-                                            <Setter Property="Source"
-                                                    Value="pack://application:,,,/Resources/actor_director.png" />
-
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Type}" Value="Movie">
-                                            <Setter Property="Source"
-                                                    Value="pack://application:,,,/Resources/movie.png" />
-
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Type}" Value="None">
-                                            <Setter Property="Source"
-                                                    Value="pack://application:,,,/Resources/unknown.png" />
-
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Image.Style>
-                        </Image>
+                        <Image Width="48" Height="48" Source="{Binding Converter={StaticResource ImageConverter}}" />
                         <TextBlock FontSize="13" VerticalAlignment="Center"
                                    Text="{Binding Converter={StaticResource SearchResultConverter},ConverterParameter={local:String RealName}}" />
                     </StackPanel>
@@ -100,20 +72,51 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Orientation="Horizontal" Height="50">
                 <Image
-                    Source="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource ImagePathConverter}}" />
+                    Source="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource ImageConverter}}" />
                 <TextBlock FontWeight="Bold" FontSize="20"
                            Text="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String RealName}}" />
             </StackPanel>
 
             <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold"
                        FontSize="14">
-                Directors
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding ElementName=SearchItems, Path=SelectedValue.ResultItem, Converter={StaticResource SearchResultConverter}}"
+                                Value="{x:Type domain:Movie}">
+                                <Setter Property="Text" Value="Directors:" />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding ElementName=SearchItems, Path=SelectedValue.ResultItem, Converter={StaticResource SearchResultConverter}}"
+                                Value="{x:Type entities:CastOrCrew}">
+                                <Setter Property="Text" Value="Directed in:" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
             </TextBlock>
             <TextBlock Grid.Row="2" Grid.Column="0" Margin="5"
                        Text="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Directors}}" />
             <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="5" FontWeight="Bold"
                        FontSize="14">
-                Actors
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding ElementName=SearchItems, Path=SelectedValue.ResultItem, Converter={StaticResource SearchResultConverter}}"
+                                Value="{x:Type domain:Movie}">
+                                <Setter Property="Text" Value="Actors:" />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding ElementName=SearchItems, Path=SelectedValue.ResultItem, Converter={StaticResource SearchResultConverter}}"
+                                Value="{x:Type entities:CastOrCrew}">
+                                <Setter Property="Text" Value="Acted in:" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+
             </TextBlock>
             <TextBlock Grid.Row="4" Grid.Column="0" Margin="5"
                        Text="{Binding ElementName=SearchItems, Path=SelectedValue, Converter={StaticResource SearchResultConverter},ConverterParameter={local:String Actors}}" />
